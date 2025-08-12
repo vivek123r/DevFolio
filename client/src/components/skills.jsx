@@ -1,4 +1,4 @@
-import { Code, Database, Globe, Smartphone, Server, GitBranch, Languages } from "lucide-react";
+import { Code, Database, Globe, Smartphone, Server, GitBranch, Code2 } from "lucide-react";
 
 export default function Skills() {
   const skills = [
@@ -19,7 +19,7 @@ export default function Skills() {
     },
     {
       category: "Languages",
-      icon: <Languages className="w-8 h-8" />,
+      icon: <Code2 className="w-8 h-8" />,
       technologies: ["Java", "Python", "JavaScript", "TypeScript", "Ruby"]
     }
 

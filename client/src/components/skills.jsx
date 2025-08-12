@@ -1,11 +1,11 @@
-import { Code, Database, Globe, Smartphone, Server, GitBranch } from "lucide-react";
+import { Code, Database, Globe, Smartphone, Server, GitBranch, Languages } from "lucide-react";
 
 export default function Skills() {
   const skills = [
     {
       category: "Frontend",
       icon: <Globe className="w-8 h-8" />,
-      technologies: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"]
+      technologies: ["React", "JavaScript", "HTML5", "CSS", "Tailwind CSS", "Responsive Design"]
     },
     {
       category: "Backend",
@@ -13,15 +13,16 @@ export default function Skills() {
       technologies: ["Node.js", "Express.js", "REST APIs", "Authentication", "Session Management"]
     },
     {
-      category: "Database",
-      icon: <Database className="w-8 h-8" />,
-      technologies: ["PostgreSQL", "Drizzle ORM", "Database Design", "SQL"]
-    },
-    {
       category: "Tools & Others",
       icon: <GitBranch className="w-8 h-8" />,
-      technologies: ["Git", "GitHub", "VS Code", "Vite", "npm", "Deployment"]
+      technologies: ["Git", "GitHub", "Firebase", "AWS", "CI/CD", "Docker","Google Cloud","Kubernetes"]
+    },
+    {
+      category: "Languages",
+      icon: <Languages className="w-8 h-8" />,
+      technologies: ["Java", "Python", "JavaScript", "TypeScript", "Ruby"]
     }
+
   ];
 
   return (

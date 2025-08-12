@@ -5,7 +5,7 @@ export default function Skills() {
     {
       category: "Frontend",
       icon: <Globe className="w-8 h-8" />,
-      technologies: ["React", "JavaScript", "HTML5", "CSS", "Tailwind CSS", "Responsive Design"]
+      technologies: ["React", "JavaScript", "HTML5", "CSS", "Tailwind CSS", "Responsive Design","Flutter"]
     },
     {
       category: "Backend",
@@ -20,7 +20,7 @@ export default function Skills() {
     {
       category: "Languages",
       icon: <Code2 className="w-8 h-8" />,
-      technologies: ["Java", "Python", "JavaScript", "TypeScript", "Ruby"]
+      technologies: ["dart", "Python", "JavaScript", "Java","SQL"]
     }
 
   ];

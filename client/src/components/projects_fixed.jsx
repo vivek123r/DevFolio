@@ -5,7 +5,7 @@ import { GITHUB_USERNAME, getLanguageColor } from "../lib/github.js";
 const customProjects = [
   {
     id: 1,
-    name: "Expense Tracker InfoRint",
+    name: "Expense Tracker MINT",
     description: "A comprehensive expense tracking application built with Flutter and Firebase. Features real-time expense monitoring, category-wise spending analysis, budget planning, and detailed financial reports with beautiful charts and graphs.",
     language: "Dart",
     topics: ["flutter", "firebase", "mobile", "expense-tracking", "budget-management"],

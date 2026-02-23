@@ -2,6 +2,9 @@ import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
 import { GITHUB_USERNAME } from "../lib/github.js";
 
 export default function Contact() {
+
+  // FormSubmit.co handles the form submission directly
+  // This component now maintains minimal state for UI only
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -26,10 +29,10 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
                     <a 
-                      href="mailto:contact@example.com" 
+                      href="mailto:vivek987pm@gmail.com" 
                       className="text-gray-600 hover:text-blue-600 transition-colors"
                     >
-                      contact@example.com
+                      vivek987pm@gmail.com
                     </a>
                   </div>
                 </div>
@@ -58,7 +61,7 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-gray-900">LinkedIn</h4>
                     <a 
-                      href="https://linkedin.com/in/yourprofile" 
+                      href="https://www.linkedin.com/in/vivek-r-015008188" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -84,7 +87,14 @@ export default function Contact() {
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
               
-              <form className="space-y-6">
+              {/* Using FormSubmit.co - No API keys or passwords needed */}
+              <form className="space-y-6" action="https://formsubmit.co/b78b5611c1d8d371613b98ffc7f4104d" method="POST">
+                {/* FormSubmit.co configuration */}
+                <input type="hidden" name="_next" value={window.location.href} />
+                <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name

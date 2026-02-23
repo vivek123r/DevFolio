@@ -23,6 +23,24 @@ const customProjects = [
   },
   {
     id: 3,
+    name: "E-Shop",
+    description: "Modern e-commerce website with clean UI/UX design. Features product catalog, shopping cart, secure payment integration, user authentication, order tracking, and push notifications. Built with React for cross-platform compatibility.",
+    language: "Dart",
+    topics: ["flutter", "ecommerce", "React", "ui-ux", "payment-integration"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/e-shop`,
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
+  },
+  {
+    id: 4,
+    name: "E-Shop",
+    description: "Modern e-commerce website with clean UI/UX design. Features product catalog, shopping cart, secure payment integration, user authentication, order tracking, and push notifications. Built with React for cross-platform compatibility.",
+    language: "Dart",
+    topics: ["flutter", "ecommerce", "React", "ui-ux", "payment-integration"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/e-shop`,
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
+  },
+  {
+    id: 5,
     name: "DevFolio Portfolio",
     description: "A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features dynamic GitHub integration, contact form, project showcase, skills visualization, and optimized performance. Deployed with cloud infrastructure.",
     language: "JavaScript",
@@ -31,7 +49,7 @@ const customProjects = [
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: 4,
+    id: 6,
     name: "Chatbot - Extension",
     description: "A powerful Visual Studio Code extension that enhances developer productivity. Features code snippets, syntax highlighting, intelligent autocomplete, debugging tools, and seamless integration with popular frameworks and libraries.",
     language: "JavaScript",
@@ -40,7 +58,7 @@ const customProjects = [
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: 5,
+    id: 7,
     name: "chatbot_python_webScraping",
     description: "Advanced web scraping application built with Python using BeautifulSoup, Scrapy, and Selenium. Features automated data extraction, anti-bot detection bypass, data cleaning and processing, export to multiple formats, and scheduled scraping tasks.",
     language: "Python",

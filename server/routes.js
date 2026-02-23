@@ -2,13 +2,6 @@ import { createServer } from "http";
 import { storage } from "./storage.js";
 import { z } from "zod";
 
-const contactMessageSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Valid email is required"),
-  subject: z.string().min(1, "Subject is required"),
-  message: z.string().min(1, "Message is required")
-});
-
 export async function registerRoutes(app) {
   // GitHub API integration
   app.get("/api/github/user/:username", async (req, res) => {
@@ -69,25 +62,7 @@ export async function registerRoutes(app) {
     }
   });
 
-  // Contact form endpoint
-  app.post("/api/contact", async (req, res) => {
-    try {
-      const validatedData = contactMessageSchema.parse(req.body);
-      const message = await storage.createContactMessage(validatedData);
-      
-      // In a real application, you would send an email here
-      console.log('New contact message:', message);
-      
-      res.json({ success: true, message: 'Message sent successfully!' });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        res.status(400).json({ error: error.errors[0].message });
-      } else {
-        console.error('Contact form error:', error);
-        res.status(500).json({ error: 'Failed to send message' });
-      }
-    }
-  });
+  // Contact form endpoint removed - now using FormSubmit.co
 
   // Get all contact messages (for admin purposes)
   app.get("/api/contact", async (req, res) => {

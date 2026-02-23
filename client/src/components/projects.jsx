@@ -1,28 +1,56 @@
 import { useState } from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { GITHUB_USERNAME, getLanguageColor } from "../lib/github.js";
+import ProjectModal from "./project-modal";
 
 const customProjects = [
   {
     id: 1,
-    name: "Expense Tracker InfoRint",
+    name: "System Monitor",
+    description: "A secure, real-time system monitoring and remote control application. Features real-time PC metrics monitoring (CPU, RAM, GPU, Disk, Network, Battery), remote power and brightness control, local LAN file sharing with QR codes, multi-user device management, and command logging and execution.",
+    language: "Python",
+    topics: ["python", "flutter", "fastapi", "firebase", "monitoring", "remote-control"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/SystemMonitor`,
+    image: "/images/SystemMonitor1.png"
+  },
+  {
+    id: 2,
+    name: "Expense Tracker MINT (SMS-based)",
     description: "A comprehensive expense tracking application built with Flutter and Firebase. Features real-time expense monitoring, category-wise spending analysis, budget planning, and detailed financial reports with beautiful charts and graphs.",
     language: "Dart",
     topics: ["flutter", "firebase", "mobile", "expense-tracking", "budget-management"],
     html_url: `https://github.com/${GITHUB_USERNAME}/ExpenseTracker_sms-based`,
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
-  },
-  {
-    id: 2,
-    name: "E-Shop",
-    description: "Modern e-commerce website with clean UI/UX design. Features product catalog, shopping cart, secure payment integration, user authentication, order tracking, and push notifications. Built with React for cross-platform compatibility.",
-    language: "Dart",
-    topics: ["flutter", "ecommerce", "React", "ui-ux", "payment-integration"],
-    html_url: `https://github.com/${GITHUB_USERNAME}/e-shop`,
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
+    image: "/images/expenseTracker.png"
   },
   {
     id: 3,
+    name: "Extension Builder EXFORGE",
+    description: "An AI-powered extension builder that uses intelligent agents to automatically write production-ready code. Powered by LangChain and Python backend, it transforms plain-English prompts into complete extensions with code, views/webviews, configuration, tests, and documentation. The AI agent analyzes requirements and types out code in real-time.",
+    language: "Python",
+    topics: ["ai", "langchain", "python", "extension", "productivity", "automation"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/Extension`,
+    image: "/images/Exforge1.png"
+  },
+  {
+    id: 4,
+    name: "Modern Gaming Advisor Pro",
+    description: "A comprehensive gaming application that analyzes system specs to optimize gaming experiences. Features include game performance analysis, personalized graphics settings recommendations, real-time CPU/GPU monitoring, and an extensive game library with details, screenshots, and trailers. Built with Python and integrates with RAWG API.",
+    language: "Python",
+    topics: ["gaming", "performance-optimization", "system-monitoring", "desktop-app", "ai-recommendations"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/gaming-advisor`,
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
+  },
+  {
+    id: 5,
+    name: "E-Shop",
+    description: "Modern e-commerce website with clean UI/UX design. Features product catalog, shopping cart, secure payment integration, user authentication, order tracking, and push notifications. Built with React for cross-platform compatibility.",
+    language: "JavaScript",
+    topics: [ "ecommerce", "React", "ui-ux", "payment-integration"],
+    html_url: `https://github.com/${GITHUB_USERNAME}/e-shop`,
+    image: "/images/Eshop1.png" 
+  },
+  {
+    id: 6,
     name: "DevFolio Portfolio",
     description: "A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features dynamic GitHub integration, contact form, project showcase, skills visualization, and optimized performance. Deployed with cloud infrastructure.",
     language: "JavaScript",
@@ -31,7 +59,7 @@ const customProjects = [
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: 4,
+    id: 7,
     name: "Chatbot - Extension",
     description: "A powerful Visual Studio Code extension that enhances developer productivity. Features code snippets, syntax highlighting, intelligent autocomplete, debugging tools, and seamless integration with popular frameworks and libraries.",
     language: "JavaScript",
@@ -40,7 +68,7 @@ const customProjects = [
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: 5,
+    id: 8,
     name: "chatbot_python_webScraping",
     description: "Advanced web scraping application built with Python using BeautifulSoup, Scrapy, and Selenium. Features automated data extraction, anti-bot detection bypass, data cleaning and processing, export to multiple formats, and scheduled scraping tasks.",
     language: "Python",
@@ -60,6 +88,17 @@ const filterOptions = [
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+  };
 
   const filteredProjects = customProjects.filter((project) => {
     if (activeFilter === "all") return true;
@@ -85,7 +124,10 @@ export default function Projects() {
     const languageColor = getLanguageColor(project.language);
 
     return (
-      <div className="group bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 rounded-lg">
+      <div 
+        className="group bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 rounded-lg cursor-pointer"
+        onClick={() => openProjectModal(project)}
+      >
         <div className="p-6">
           <img
             src={project.image}
@@ -193,6 +235,13 @@ export default function Projects() {
           </a>
         </div>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeProjectModal}
+      />
     </section>
   );
 }

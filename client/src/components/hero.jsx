@@ -26,13 +26,13 @@ export default function Hero() {
                 Hi, I'm <span className="text-tech-blue">vivek</span>
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                Cloud Developer & Mobile Engineer specializing in{" "}
-                <span className="text-tech-blue font-semibold">AWS Cloud Services</span>,{" "}
-                <span className="text-success-green font-semibold">Flutter Development</span>, and{" "}
-                <span className="text-warning-amber font-semibold">DevOps Automation</span>
+                Full-Stack Developer & Software Engineer specializing in{" "}
+                <span className="text-tech-blue font-semibold">AI/ML Solutions</span>,{" "}
+                <span className="text-success-green font-semibold">Mobile Development</span>, and{" "}
+                <span className="text-warning-amber font-semibold">System Automation</span>
               </p>
               <p className="text-gray-500 mb-8">
-                Building scalable cloud solutions and cross-platform mobile applications with modern technologies and best practices.
+                Building intelligent applications, cross-platform mobile solutions, and automated systems with modern technologies and best practices.
               </p>
             </div>
 

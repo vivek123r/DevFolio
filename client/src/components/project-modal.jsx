@@ -8,37 +8,37 @@ export default function ProjectModal({ project, isOpen, onClose }) {
   const projectScreenshots = {
     // Each project can have multiple screenshots
     "System Monitor": [
-      "/images/SystemMonitor1.png",
-      "/images/SystemMonitor2.png",
-      "/images/SystemMonitor3.png",
-      "/images/SystemMonitor4.jpg",
-      "/images/SystemMonitor5.jpg",
-      "/images/SystemMonitor6.jpg",
-      "/images/SystemMonitor7.jpg",
+      "./images/SystemMonitor1.png",
+      "./images/SystemMonitor2.png",
+      "./images/SystemMonitor3.png",
+      "./images/SystemMonitor4.jpg",
+      "./images/SystemMonitor5.jpg",
+      "./images/SystemMonitor6.jpg",
+      "./images/SystemMonitor7.jpg",
     ],
     "Expense Tracker MINT": [
-      "/images/expenseTracker.png",  // Main image
-      "/images/expenseTracker1.png",  // Add these images to your public/images folder
-      "/images/expenseTracker2.png",
-      "/images/expenseTracker3.png",
+      "./images/expenseTracker.png",  // Main image
+      "./images/expenseTracker1.png",  // Add these images to your public/images folder
+      "./images/expenseTracker2.png",
+      "./images/expenseTracker3.png",
     ],
     "Expense Tracker MINT (SMS-based)": [
-      "/images/expenseTracker.png",
-      "/images/expenseTracker1.png",
-      "/images/expenseTracker2.png",
-      "/images/expenseTracker3.png",
+      "./images/expenseTracker.png",
+      "./images/expenseTracker1.png",
+      "./images/expenseTracker2.png",
+      "./images/expenseTracker3.png",
     ],
     "Extension Builder EXFORGE": [
-        "/images/Exforge1.png",
-        "/images/Exforge2.png",
-        "/images/Exforge3.png",
-        "/images/Exforge4.png",
+        "./images/Exforge1.png",
+        "./images/Exforge2.png",
+        "./images/Exforge3.png",
+        "./images/Exforge4.png",
         ],
       "E-Shop":[
-        "/images/Eshop1.png",
-        "/images/Eshop2.png",
-        "/images/Eshop3.png",
-        "/images/Eshop4.png",
+        "./images/Eshop1.png",
+        "./images/Eshop2.png",
+        "./images/Eshop3.png",
+        "./images/Eshop4.png",
       ]
     // Add more projects as needed
   };

@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Github, Download, MapPin, Code } from "lucide-react";
+import { Github, Download, MapPin, Code, Terminal as TerminalIcon } from "lucide-react";
 import { fetchGitHubUser, GITHUB_USERNAME } from "../lib/github.js";
+import TerminalOverlay from "./terminal-overlay.jsx";
 
 export default function Hero() {
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
   const { data: githubUser } = useQuery({
     queryKey: ["/api/github/user", GITHUB_USERNAME],
     queryFn: () => fetchGitHubUser(GITHUB_USERNAME),
@@ -69,19 +73,35 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="lg:w-1/2 lg:pl-12">
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-                alt="Modern developer workspace"
-                className="rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
-                alt="Cloud computing visualization"
-                className="absolute -top-6 -right-6 w-32 h-24 rounded-lg shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-500"
-              />
-            </div>
+          <div className="lg:w-1/2 lg:pl-12 w-full">
+            {!isTerminalOpen ? (
+              <div 
+                className="relative cursor-pointer group"
+                onClick={() => setIsTerminalOpen(true)}
+                title="Click to open interactive terminal"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+                  alt="Modern developer workspace"
+                  className="rounded-2xl shadow-2xl transform rotate-3 group-hover:rotate-0 group-hover:scale-[1.02] transition-all duration-500 w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center transform group-hover:rotate-0">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-lg flex items-center gap-3">
+                    <TerminalIcon className="w-5 h-5" />
+                    <span className="font-mono font-medium tracking-wide">Launch Terminal</span>
+                  </div>
+                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
+                  alt="Cloud computing visualization"
+                  className="absolute -top-6 -right-6 w-32 h-24 rounded-lg shadow-lg transform -rotate-12 group-hover:rotate-0 transition-all duration-500 hidden md:block"
+                />
+              </div>
+            ) : (
+              <div className="animate-in fade-in zoom-in duration-500">
+                <TerminalOverlay isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+              </div>
+            )}
           </div>
         </div>
       </div>

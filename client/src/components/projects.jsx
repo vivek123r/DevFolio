@@ -11,7 +11,7 @@ const customProjects = [
     language: "Python",
     topics: ["python", "flutter", "fastapi", "firebase", "monitoring", "remote-control"],
     html_url: `https://github.com/${GITHUB_USERNAME}/SystemMonitor`,
-    image: "/images/SystemMonitor1.png"
+    image: "./images/SystemMonitor1.png"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const customProjects = [
     language: "Dart",
     topics: ["flutter", "firebase", "mobile", "expense-tracking", "budget-management"],
     html_url: `https://github.com/${GITHUB_USERNAME}/ExpenseTracker_sms-based`,
-    image: "/images/expenseTracker.png"
+    image: "./images/expenseTracker.png"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const customProjects = [
     language: "Python",
     topics: ["ai", "langchain", "python", "extension", "productivity", "automation"],
     html_url: `https://github.com/${GITHUB_USERNAME}/Extension`,
-    image: "/images/Exforge1.png"
+    image: "./images/Exforge1.png"
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const customProjects = [
     language: "JavaScript",
     topics: [ "ecommerce", "React", "ui-ux", "payment-integration"],
     html_url: `https://github.com/${GITHUB_USERNAME}/e-shop`,
-    image: "/images/Eshop1.png" 
+    image: "./images/Eshop1.png" 
   },
   {
     id: 6,

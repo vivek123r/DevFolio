@@ -125,52 +125,55 @@ export default function Projects() {
 
     return (
       <div 
-        className="group bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 rounded-lg cursor-pointer"
+        className="group bg-white dark:bg-gray-900 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-800 rounded-lg cursor-pointer flex flex-col h-full"
         onClick={() => openProjectModal(project)}
       >
-        <div className="p-6">
+        <div className="p-6 flex-1 flex flex-col">
           <img
             src={project.image}
             alt={`${project.name} project`}
-            className="w-full h-48 object-cover rounded-lg mb-4"
+            className="w-full h-48 object-cover rounded-lg mb-4 bg-gray-100 dark:bg-gray-800"
           />
 
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {project.name}
             </h3>
             <a
               href={project.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-blue-600 p-2 rounded transition-colors"
+              className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 p-2 rounded transition-colors"
+              onClick={(e) => e.stopPropagation()}
             >
               <Github className="w-5 h-5" />
             </a>
           </div>
 
-          <p className="text-gray-600 mb-4 line-clamp-3">
+          <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span
-              className="px-2 py-1 text-xs rounded"
-              style={{ backgroundColor: `${languageColor}20`, color: languageColor }}
-            >
-              {project.language}
-            </span>
-            {project.topics.slice(0, 3).map((topic) => (
-              <span key={topic} className="px-2 py-1 text-xs capitalize border border-gray-200 rounded">
-                {topic}
+          <div className="mt-auto">
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span
+                className="px-2 py-1 text-xs rounded font-medium"
+                style={{ backgroundColor: `${languageColor}20`, color: languageColor }}
+              >
+                {project.language}
               </span>
-            ))}
-          </div>
+              {project.topics.slice(0, 3).map((topic) => (
+                <span key={topic} className="px-2 py-1 text-xs capitalize border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 rounded">
+                  {topic}
+                </span>
+              ))}
+            </div>
 
-          <div className="flex items-center justify-between text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <span className="font-medium">Technology:</span>
-              <span>{project.language}</span>
+            <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center gap-2">
+                <span className="font-medium">Technology:</span>
+                <span>{project.language}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -179,11 +182,11 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors">Featured Projects</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors">
             A showcase of my latest work in cloud computing, mobile development, and automation
           </p>
         </div>

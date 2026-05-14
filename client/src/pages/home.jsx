@@ -6,7 +6,7 @@ import Contact from "../components/contact.jsx";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
       <Navigation />
       <Hero />
       <Skills />

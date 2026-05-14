@@ -21,21 +21,21 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="pt-20 pb-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="home" className="pt-20 pb-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-950 dark:to-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <div className="mb-6">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
                 Hi, I'm <span className="text-tech-blue">vivek</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-6 transition-colors duration-300">
                 Full-Stack Developer & Software Engineer specializing in{" "}
                 <span className="text-tech-blue font-semibold">AI/ML Solutions</span>,{" "}
                 <span className="text-success-green font-semibold">Mobile Development</span>, and{" "}
                 <span className="text-warning-amber font-semibold">System Automation</span>
               </p>
-              <p className="text-gray-500 mb-8">
+              <p className="text-gray-500 dark:text-gray-400 mb-8 transition-colors duration-300">
                 Building intelligent applications, cross-platform mobile solutions, and automated systems with modern technologies and best practices.
               </p>
             </div>
@@ -45,13 +45,13 @@ export default function Hero() {
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded transition-colors"
+                className="flex items-center gap-2 bg-gray-900 dark:bg-gray-800 hover:bg-gray-800 dark:hover:bg-gray-700 text-white px-6 py-3 rounded transition-colors"
               >
                 <Github className="w-4 h-4" />
                 GitHub Profile
               </a>
               <button 
-                className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded transition-colors"
+                className="border border-blue-600 dark:border-tech-blue text-blue-600 dark:text-tech-blue hover:bg-blue-600 dark:hover:bg-tech-blue hover:text-white dark:hover:text-gray-950 px-6 py-3 rounded transition-colors"
                 onClick={scrollToContact}
               >
                 <Download className="w-4 h-4 mr-2 inline" />
@@ -59,7 +59,7 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+            <div className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-tech-blue" />
                 <span>Available for Remote Work</span>

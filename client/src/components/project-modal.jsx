@@ -61,14 +61,14 @@ export default function ProjectModal({ project, isOpen, onClose }) {
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 dark:bg-opacity-80 backdrop-blur-sm transition-colors duration-300">
       <div 
-        className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        className="relative bg-white dark:bg-gray-900 rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transition-colors duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button 
-          className="absolute top-4 right-4 p-1 bg-gray-200 hover:bg-gray-300 rounded-full z-10"
+          className="absolute top-4 right-4 p-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full z-10 transition-colors"
           onClick={onClose}
         >
           <X size={20} />
@@ -90,13 +90,13 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                 {/* Image navigation */}
                 <button 
                   onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow hover:bg-gray-100"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-900/80 text-gray-800 dark:text-gray-200 rounded-full shadow hover:bg-white dark:hover:bg-gray-900 transition-colors"
                 >
                   <ArrowLeft size={20} />
                 </button>
                 <button 
                   onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow hover:bg-gray-100"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-900/80 text-gray-800 dark:text-gray-200 rounded-full shadow hover:bg-white dark:hover:bg-gray-900 transition-colors"
                 >
                   <ArrowRight size={20} />
                 </button>
@@ -107,8 +107,8 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     <button 
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full ${
-                        currentImageIndex === index ? 'bg-blue-600' : 'bg-gray-300'
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        currentImageIndex === index ? 'bg-blue-600 dark:bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
                       }`}
                     />
                   ))}
@@ -120,14 +120,14 @@ export default function ProjectModal({ project, isOpen, onClose }) {
           {/* Project details */}
           <div className="mt-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">{project.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors">{project.name}</h2>
               
               <div className="flex space-x-3">
                 <a
                   href={project.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-600 hover:text-blue-600"
+                  className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Github size={18} />
                   <span>Code</span>
@@ -136,7 +136,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   href={project.demo_url || project.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-600 hover:text-blue-600"
+                  className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <ExternalLink size={18} />
                   <span>Demo</span>
@@ -145,18 +145,18 @@ export default function ProjectModal({ project, isOpen, onClose }) {
             </div>
 
             <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1 text-xs rounded bg-blue-100 text-blue-800">
+              <span className="px-3 py-1 text-xs rounded bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 transition-colors">
                 {project.language}
               </span>
               {project.topics.map((topic) => (
-                <span key={topic} className="px-3 py-1 text-xs capitalize bg-gray-100 rounded">
+                <span key={topic} className="px-3 py-1 text-xs capitalize bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded transition-colors">
                   {topic}
                 </span>
               ))}
             </div>
 
-            <div className="space-y-4 text-gray-700">
-              <h3 className="font-semibold text-lg">Project Overview</h3>
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 transition-colors">
+              <h3 className="font-semibold text-lg text-gray-900 dark:text-white transition-colors">Project Overview</h3>
               <p className="leading-relaxed">
                 {project.description}
               </p>
@@ -164,7 +164,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               {/* For System Monitor project, show more detailed info */}
               {project.name === "System Monitor" && (
                 <div className="mt-4 space-y-3">
-                  <h3 className="font-semibold text-lg">Key Features</h3>
+                  <h3 className="font-semibold text-lg text-gray-900 dark:text-white transition-colors">Key Features</h3>
                   <ul className="list-disc list-inside space-y-1">
                     <li>Real-time PC metrics monitoring (CPU, RAM, GPU, Disk, Network, Battery)</li>
                     <li>Remote power control and system shutdown/restart</li>
@@ -175,7 +175,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     <li>Cross-platform mobile app (iOS, Android, Web, Linux, macOS, Windows)</li>
                   </ul>
                   
-                  <h3 className="font-semibold text-lg pt-2">Technologies Used</h3>
+                  <h3 className="font-semibold text-lg pt-2 text-gray-900 dark:text-white transition-colors">Technologies Used</h3>
                   <ul className="list-disc list-inside space-y-1">
                     <li>Backend: Python with FastAPI framework</li>
                     <li>Desktop Client: Python with CustomTkinter GUI</li>
@@ -191,7 +191,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               {/* For Extension Builder EXFORGE project, show more detailed info */}
               {project.name === "Extension Builder EXFORGE" && (
                 <div className="mt-4 space-y-3">
-                  <h3 className="font-semibold text-lg">Key Features</h3>
+                  <h3 className="font-semibold text-lg text-gray-900 dark:text-white transition-colors">Key Features</h3>
                   <ul className="list-disc list-inside space-y-1">
                     <li>AI agent that autonomously writes production-ready code</li>
                     <li>Real-time code typing and generation from natural language prompts</li>
